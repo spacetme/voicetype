@@ -24,7 +24,7 @@ angular.module('voicetype', [])
     return speech
 
     function getLanguage() {
-      var match = location.search.match(/lang=(\w+)/)
+      var match = location.search.match(/lang=([\w\-]+)/)
       if (match) return match[1]
       else return 'en'
     }
@@ -56,6 +56,10 @@ angular.module('voicetype', [])
             $scope.textarea.type(current[0].transcript)
             window.onspeechtext(current[0].transcript, current)
             log(current)
+          } else {
+            if (i < nonFinalIndex) {
+              nonFinalIndex = i
+            }
           }
         }
         $scope.guess = [].slice.call(event.results, nonFinalIndex).map(function(current) {
