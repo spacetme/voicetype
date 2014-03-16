@@ -1,4 +1,7 @@
 
+window.onspeechtext = function(event, text) {
+}
+
 angular.module('voicetype', [])
   .factory('exceptions', function() {
     return []
@@ -17,6 +20,7 @@ angular.module('voicetype', [])
     speech.lang = getLanguage()
     speech.continuous = true
     speech.interimResults = true
+    window.speech = speech
     return speech
 
     function getLanguage() {
@@ -50,6 +54,7 @@ angular.module('voicetype', [])
           if (current.isFinal) {
             nonFinalIndex = i + 1
             $scope.textarea.type(current[0].transcript)
+            window.onspeechtext(current[0].transcript, current)
             log(current)
           }
         }
