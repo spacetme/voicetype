@@ -1,0 +1,26 @@
+---
+title: Voicetype
+---
+
+<div class="container" ng-app="voicetype">
+  <h1>Voicetype</h1>
+  <div ng-controller="ErrorController">
+    <div class="alert alert-danger" ng-repeat="exception in exceptions"><strong>Error</strong> {{exception.message}}</div>
+  </div>
+  <div ng-controller="VoiceTypingController">
+    <textarea class="result-text form-control" typing-textarea="textarea"></textarea>
+    <div ng-show="!active && !starting">
+      <button ng-click="startTyping()" class="btn btn-block btn-primary btn-lg">Start Listening (lang: {{speech.lang}})</button>
+    </div>
+    <div ng-show="!active && starting" class="btn btn-block btn-default disabled btn-lg">(Starting...)</div>
+    <div ng-show="active" class="row">
+      <div class="col-sm-9">
+        <div class="guess text-muted">{{guess}}</div>
+      </div>
+      <div class="col-sm-3">
+        <button ng-click="stopTyping()" class="btn btn-block btn-success btn-lg">Stop</button>
+      </div>
+    </div>
+  </div>
+</div>
+

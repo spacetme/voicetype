@@ -1,0 +1,20 @@
+@charset "utf-8";
+@import url(http://fonts.googleapis.com/earlyaccess/droidserifthai.css);
+@import url(http://fonts.googleapis.com/earlyaccess/droidsansthai.css);
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,300);
+
+
+h1 {
+  font: 300 40px Roboto, sans-serif;
+}
+
+textarea.result-text {
+  height: 10em;
+  margin-bottom: 1ex;
+  resize: vertical;
+}
+
+.guess, textarea.result-text {
+  font: 24px Roboto, Droid Sans Thai, sans-serif;
+}
+
