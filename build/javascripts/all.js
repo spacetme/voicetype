@@ -91,6 +91,9 @@ angular.module('voicetype', [])
           var after = old.substr(el.selectionEnd)
           el.value = before + text + after
           el.selectionStart = el.selectionEnd = start + text.length
+          setTimeout(function() {
+            el.selectionStart = el.selectionEnd = start + text.length
+          }, 0)
         }))
       }
       function preserve(name, callback) {
